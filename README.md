@@ -8,3 +8,4 @@ jogo da velha
 ## Notas
 * nao fiz teste de stress pois nao achei necessario tendo em vista que esta rodando numa lambda na AWS sendo portanto serverless, pode roda um hey no meu endpoint se quiser mas faça com moderacao para nao estourar minhas 1M free requests. Codigo para arrebentar de requests: hey -m POST -T "application/json" -d '{"jogo": ["OOO","XOX","XOX"]}' http://ENDPOINT/jogovelha (acredite, essa ferramenta é bem poderosa, ja derrubei alguns servidores e produçao com isso (da para instalar pelo brew -> brew install hey))
 * A lambda esta no container docker com a imagem do java11
+* Performace O(n)
