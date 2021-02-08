@@ -17,7 +17,7 @@ RUN cp -r $SCRATCH_DIR/*/build/distributions/lambda-build/* .
 FROM public.ecr.aws/lambda/java:11
 
 COPY --from=build-image /var/task/META-INF ./
-COPY --from=build-image /var/task/helloworld ./helloworld
+COPY --from=build-image /var/task/nivel3 ./nivel3
 COPY --from=build-image /var/task/lib/ ./lib
 # Command can be overwritten by providing a different command in the template directly.
-CMD ["helloworld.App::handleRequest"]
+CMD ["nivel3.App::handleRequest"]

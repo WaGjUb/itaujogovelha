@@ -1,10 +1,10 @@
-package helloworld;
+package nivel3;
 
 import java.util.ArrayList;
 
 public class JogoVelha {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
     }
 
     private int[] board;
@@ -21,6 +21,8 @@ public class JogoVelha {
 		this.board = cvtBoard;
 	}
 
+
+	JogoVelha(){}
 
 	public boolean isVelha(){
     	return isVelha(this.board);
@@ -48,10 +50,6 @@ public class JogoVelha {
 		}
 		
 		//Diagonal
-			if ((jogo[0] == jogo[4] && jogo[0] == jogo[8]) || (jogo[2] == jogo[4] && jogo[2] == jogo[6])){
-				return false;
-			}
-
-		return true;
+		return (jogo[0] != jogo[4] || jogo[0] != jogo[8]) && (jogo[2] != jogo[4] || jogo[2] != jogo[6]);
 	}
 }

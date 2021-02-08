@@ -1,7 +1,6 @@
-package helloworld;
+package nivel3;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import com.amazonaws.services.lambda.runtime.Context;
@@ -13,6 +12,7 @@ import com.google.gson.Gson;
 /**
  * Handler for requests to Lambda function.
  */
+@SuppressWarnings("unchecked")
 public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     public APIGatewayProxyResponseEvent handleRequest(final APIGatewayProxyRequestEvent input, final Context context) {
@@ -27,7 +27,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
 
             //Convert input to arraylist
             Gson gson = new Gson();
-            Map<String, Object> mappedInput = gson.fromJson(input.getBody(), Map.class);
+            Map mappedInput = gson.fromJson(input.getBody(), Map.class);
             ArrayList jogoAsObjectArray = (ArrayList) mappedInput.get("jogo");
             JogoVelha jogoVelha = new JogoVelha(jogoAsObjectArray);
 
