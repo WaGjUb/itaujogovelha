@@ -2,9 +2,9 @@
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
 
-- HelloWorldFunction/src/main - Code for the application's Lambda function and Project Dockerfile.
+- JogoVelhaFunction/src/main - Code for the application's Lambda function and Project Dockerfile.
 - events - Invocation events that you can use to invoke the function.
-- HelloWorldFunction/src/test - Unit tests for the application code. 
+- JogoVelhaFunction/src/test - Unit tests for the application code. 
 - template.yaml - A template that defines the application's AWS resources.
 
 The application uses several AWS resources, including Lambda functions and an API Gateway API. These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code.
@@ -46,14 +46,14 @@ Build your application with the `sam build` command.
 itauJogoDaVelha$ sam build
 ```
 
-The SAM CLI builds a docker image from a Dockerfile and then installs dependencies defined in `HelloWorldFunction/build.gradle` inside the docker image. The processed template file is saved in the `.aws-sam/build` folder.
+The SAM CLI builds a docker image from a Dockerfile and then installs dependencies defined in `JogoVelhaFunction/build.gradle` inside the docker image. The processed template file is saved in the `.aws-sam/build` folder.
 
 Test a single function by invoking it directly with a test event. An event is a JSON document that represents the input that the function receives from the event source. Test events are included in the `events` folder in this project.
 
 Run functions locally and invoke them with the `sam local invoke` command.
 
 ```bash
-itauJogoDaVelha$ sam local invoke HelloWorldFunction --event events/event.json
+itauJogoDaVelha$ sam local invoke JogoVelhaFunction --event events/event.json
 ```
 
 The SAM CLI can also emulate your application's API. Use the `sam local start-api` to run the API locally on port 3000.
@@ -67,7 +67,7 @@ The SAM CLI reads the application template to determine the API's routes and the
 
 ```yaml
       Events:
-        HelloWorld:
+        JogoVelha:
           Type: Api
           Properties:
             Path: /hello
@@ -84,18 +84,18 @@ To simplify troubleshooting, SAM CLI has a command called `sam logs`. `sam logs`
 `NOTE`: This command works for all AWS Lambda functions; not just the ones you deploy using SAM.
 
 ```bash
-itauJogoDaVelha$ sam logs -n HelloWorldFunction --stack-name itauJogoDaVelha --tail
+itauJogoDaVelha$ sam logs -n JogoVelhaFunction --stack-name itauJogoDaVelha --tail
 ```
 
 You can find more information and examples about filtering Lambda function logs in the [SAM CLI Documentation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-logging.html).
 
 ## Unit tests
 
-Tests are defined in the `HelloWorldFunction/src/test` folder in this project.
+Tests are defined in the `JogoVelhaFunction/src/test` folder in this project.
 
 ```bash
-itauJogoDaVelha$ cd HelloWorldFunction
-HelloWorldFunction$ gradle test
+itauJogoDaVelha$ cd JogoVelhaFunction
+JogoVelhaFunction$ gradle test
 ```
 
 ## Cleanup
